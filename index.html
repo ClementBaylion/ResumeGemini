@@ -102,6 +102,7 @@
         <img id="langFlagEn" src="./images/flag_en.png" data-i18n="flagEnAlt" alt="English" onclick="switchLanguage('en')">
         <img id="langFlagFr" src="./images/flag_fr.png" data-i18n="flagFrAlt" alt="French" onclick="switchLanguage('fr')">
         <img id="langFlagSv" src="./images/flag_sv.png" data-i18n="flagSvAlt" alt="Swedish" onclick="switchLanguage('sv')">
+        <img id="langFlagJa" src="./images/flag_jp.png" data-i18n="flagJaAlt" alt="Japanese" onclick="switchLanguage('ja')">
     </div>
 
     <!-- Full-width Header Section (Dark Background) -->
@@ -281,6 +282,7 @@
                 flagEnAlt: "English",
                 flagFrAlt: "French",
                 flagSvAlt: "Swedish",
+                flagJaAlt: "Japanese",
                 aiAssistantTitle: "AI Marketing Assistant",
                 aiAssistantDescription: "Ask a question about my experience or request a summary of my skills. (Powered by Gemini API)",
                 aiInputPlaceholder: "Ex: What is Clement's main asset for a tech company?",
@@ -312,6 +314,7 @@
                 flagEnAlt: "Anglais",
                 flagFrAlt: "Français",
                 flagSvAlt: "Suédois",
+                flagJaAlt: "Japonais",
                 aiAssistantTitle: "Assistant Marketing IA",
                 aiAssistantDescription: "Posez une question sur mon expérience ou demandez un résumé de mes compétences. (Basé sur l'API Gemini)",
                 aiInputPlaceholder: "Ex: Quel est le principal atout de Clément pour une entreprise technologique ?",
@@ -343,12 +346,45 @@
                 flagEnAlt: "Engelska",
                 flagFrAlt: "Franska",
                 flagSvAlt: "Svenska",
+                flagJaAlt: "Japanska",
                 aiAssistantTitle: "AI Marknadsassistent",
                 aiAssistantDescription: "Ställ en fråga om min erfarenhet eller begär en sammanfattning av mina kunskaper. (Drivs av Gemini API)",
                 aiInputPlaceholder: "Ex: Vilken är Clements främsta tillgång för ett teknikföretag?",
                 askQuestionBtn: "Ställ Fråga",
                 summarizeExpertiseBtn: "Sammanfatta Expertis",
                 loadingText: "Genererar svar...",
+            },
+            ja: {
+                pageTitle: "クレマン・ベイリオン - プロフィール",
+                marketingManager: "マーケティングマネージャー",
+                customerValueSlogan: "顧客はすべての価値を得る",
+                sloganDescription: "エンジニアリングと顧客の間に橋を架け、各イノベーションが完全に理解され、購入理由となることを保証します。",
+                contactMeBtn: "お問い合わせ",
+                experienceDetailsBtn: "経験の詳細",
+                missionTitle: "イノベーションを売上に変える",
+                missionDescription: "時間がなかったり、注意を払わなかったりすると、顧客は価値を見逃す可能性があります。そして、あなたは売上を逃します。イノベーションを簡単なアイデアに変えるにはどうすればよいですか？<br><br> マーケティングを専門とするエンジニアを雇いましょう。",
+                toolsTitle: "私の成功のツール",
+                tool1Title: "MBAとエンジニア",
+                tool1Description: "エンジニアリングと戦略的ビジョンを組み合わせた二重の専門知識により、再現可能な成功を生み出します",
+                tool2Title: "20年の経験",
+                tool2Description: "20年以上にわたって構築されたグローバルな視点、2大陸にわたる3つの主要ブランドの成長戦略を形成",
+                tool3Title: "実証済みの実行力",
+                tool3Description: "スタンドアロンのイニシアチブと大規模な戦略的プロジェクトの両方で結果を出す実証済みの能力",
+                copyright: "&copy; 2025 クレマン・ベイリオン. 無断複写・転載を禁じます。",
+                contactMeModalTitle: "お問い合わせ",
+                email: "Eメール:",
+                phoneSweden: "電話 (スウェーデン):",
+                phoneFrance: "電話 (フランス):",
+                flagEnAlt: "英語",
+                flagFrAlt: "フランス語",
+                flagSvAlt: "スウェーデン語",
+                flagJaAlt: "日本語",
+                aiAssistantTitle: "AIマーケティングアシスタント",
+                aiAssistantDescription: "私の経験について質問するか、私のスキルの要約をリクエストしてください。(Gemini API搭載)",
+                aiInputPlaceholder: "例: テクノロジー企業にとってクレマンの主な資産は何ですか？",
+                askQuestionBtn: "質問する",
+                summarizeExpertiseBtn: "専門知識を要約する",
+                loadingText: "応答を生成しています...",
             }
         };
 
@@ -364,12 +400,10 @@
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang] && translations[currentLang][key]) {
-                    // This handles elements with only text content
                     const textNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
                     if (textNode) {
                         textNode.textContent = translations[currentLang][key];
                     } else {
-                        // Fallback for elements with no direct text node (like the title)
                          element.innerHTML = translations[currentLang][key];
                     }
                 }
@@ -469,7 +503,15 @@
             
             if (summarizeExpertiseBtn) {
                 summarizeExpertiseBtn.addEventListener('click', () => {
-                    const prompt = `Provide a concise summary of your key added value and expertise. Focus on how your skills and experience translate into concrete benefits for a potential employer. Provide the summary in ${currentLang === 'fr' ? 'French' : 'English'}.`;
+                    let langPrompt = 'English';
+                    if (currentLang === 'fr') {
+                        langPrompt = 'French';
+                    } else if (currentLang === 'sv') {
+                        langPrompt = 'Swedish';
+                    } else if (currentLang === 'ja') {
+                        langPrompt = 'Japanese';
+                    }
+                    const prompt = `Provide a concise summary of your key added value and expertise. Focus on how your skills and experience translate into concrete benefits for a potential employer. Provide the summary in ${langPrompt}.`;
                     callGeminiAPI(prompt);
                 });
             }
