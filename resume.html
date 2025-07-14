@@ -22,11 +22,10 @@
         .header {
             background-color: #2e1b79;
             color: #ecf0f1;
-            padding: 3rem 1.5rem;
+            padding: 1.5rem; /* Adjusted padding */
             margin-bottom: 2rem;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative; /* Needed for absolute positioning of the buttons */
         }
         .section-title {
             color: #2c3e50;
@@ -89,7 +88,7 @@
             font-weight: bold;
         }
         .footer {
-            background-color: #2e1b79; /* Changed background color to match header */
+            background-color: #2e1b79;
             color: #ecf0f1;
             text-align: center;
             padding: 2rem 1.5rem;
@@ -101,17 +100,7 @@
             align-items: center;
             gap: 1rem;
         }
-        /* Styles for button container */
-        .header-buttons-container {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem; /* Space between buttons */
-            z-index: 10; /* Ensure buttons are above other content */
-        }
-        /* Style for the go back and download buttons */
+        /* Style for the header action buttons */
         .header-button {
             background-color: #645ddc;
             color: white;
@@ -124,7 +113,7 @@
             gap: 0.5rem;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            white-space: nowrap; /* Prevent text wrapping */
+            white-space: nowrap;
         }
         .header-button:hover {
             background-color: #534bbd;
@@ -136,7 +125,7 @@
 
         /* Style for the Contact Me button in footer */
         .contact-button {
-            background-color: #645ddc; /* Changed to match other buttons */
+            background-color: #645ddc;
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
@@ -146,23 +135,23 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
         .contact-button:hover {
-            background-color: #534bbd; /* Adjusted hover color */
+            background-color: #534bbd;
             transform: translateY(-2px);
         }
 
         /* Modal Styles */
         .modal-overlay {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
-            z-index: 1000; /* High z-index to be on top */
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
         }
         .modal-content {
             background-color: #fefefe;
@@ -210,12 +199,8 @@
             font-size: 1.25rem;
         }
         .language-switcher {
-            position: absolute;
-            top: 1.5rem; /* Adjusted to be consistent with other buttons */
-            right: 1.5rem; /* Adjusted to be consistent with other buttons */
-            z-index: 10;
-            display: flex; /* Use flex to align flags horizontally */
-            gap: 5px; /* Small gap between flags */
+            display: flex;
+            gap: 5px;
         }
         .language-switcher img {
             width: 30px;
@@ -236,30 +221,31 @@
     </style>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <img id="langFlagEn" src="./images/flag_en.png" data-i18n="flagEnAlt" alt="English" onclick="switchLanguage('en')">
-        <img id="langFlagFr" src="./images/flag_fr.png" data-i18n="flagFrAlt" alt="French" onclick="switchLanguage('fr')">
-        <img id="langFlagSv" src="./images/flag_sv.png" data-i18n="flagSvAlt" alt="Swedish" onclick="switchLanguage('sv')">
-    </div>
-
     <div class="header">
-        <!-- Button Container -->
-        <div class="header-buttons-container">
-            <!-- Go Back Button -->
-            <a href="./index.html" class="header-button" data-i18n="goBackBtn">
-                <i class="fas fa-arrow-left"></i> Go Back
-            </a>
-
-            <!-- Download Button -->
-            <a href="resume.pdf" download="resume.pdf" class="header-button" data-i18n="downloadCVBtn">
-                <i class="fas fa-download"></i> Download CV
-            </a>
+        <!-- Responsive top bar -->
+        <div class="w-full flex flex-col sm:flex-row sm:justify-between items-center gap-4 mb-6">
+            <!-- Buttons container -->
+            <div class="flex flex-row gap-2">
+                <a href="./index.html" class="header-button" data-i18n="goBackBtn">
+                    <i class="fas fa-arrow-left"></i> Go Back
+                </a>
+                <a href="resume.pdf" download="resume.pdf" class="header-button" data-i18n="downloadCVBtn">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <img id="langFlagEn" src="./images/flag_en.png" data-i18n="flagEnAlt" alt="English" onclick="switchLanguage('en')">
+                <img id="langFlagFr" src="./images/flag_fr.png" data-i18n="flagFrAlt" alt="French" onclick="switchLanguage('fr')">
+                <img id="langFlagSv" src="./images/flag_sv.png" data-i18n="flagSvAlt" alt="Swedish" onclick="switchLanguage('sv')">
+                <img id="langFlagJp" src="./images/flag_jp.png" data-i18n="flagJpAlt" alt="Japanese" onclick="switchLanguage('ja')">
+            </div>
         </div>
 
-        <h1 class="text-5xl font-bold mb-4">Clement Baylion</h1>
-        <p class="text-2xl font-light" data-i18n="marketingManagerResume">Marketing Manager</p>
-        <p class="text-3xl font-semibold text-blue-200 mt-8" data-i18n="connectingInnovationSlogan">Connecting Innovation to Sales Performance</p>
+        <!-- Main Header Content -->
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Clement Baylion</h1>
+        <p class="text-xl sm:text-2xl font-light" data-i18n="marketingManagerResume">Marketing Manager</p>
+        <p class="text-2xl sm:text-3xl font-semibold text-blue-200 mt-8" data-i18n="connectingInnovationSlogan">Connecting Innovation to Sales Performance</p>
     </div>
 
     <div class="container">
@@ -360,7 +346,7 @@
                 marketingManagerResume: "Marketing Manager",
                 connectingInnovationSlogan: "Connecting Innovation to Sales Performance",
                 professionalExperienceTitle: "Professional Experience",
-                jobTitle1: "Global Product Marketing Manager, Air Assembly Tools", // Updated job title
+                jobTitle1: "Global Product Marketing Manager, Air Assembly Tools",
                 companyInfo1: "Atlas Copco | Nacka, Sweden | 2023 – Present",
                 jobDesc1_1: "Driving a digital customer experience overhaul, managing data enrichment for over 500 SKUs and creating 18+ technical and marketing articles to support the new 'pull' strategy and improve lead generation.",
                 jobDesc1_2: "Defining a strategic shift from a sales-led 'push' to a marketing-led 'pull' GTM model for a ~200 MSEK portfolio (512 SKUs), enhancing scalability and customer experience.",
@@ -399,6 +385,7 @@
                 flagEnAlt: "English",
                 flagFrAlt: "French",
                 flagSvAlt: "Swedish",
+                flagJpAlt: "Japanese"
             },
             fr: {
                 resumePageTitle: "Clément Baylion - Expérience Professionnelle",
@@ -407,7 +394,7 @@
                 marketingManagerResume: "Responsable Marketing",
                 connectingInnovationSlogan: "Connecter l'Innovation à la Performance Commerciale",
                 professionalExperienceTitle: "Expérience Professionnelle",
-                jobTitle1: "Chef de Produit Marketing Global, Outils d'Assemblage Pneumatiques", // Updated job title
+                jobTitle1: "Chef de Produit Marketing Global, Outils d'Assemblage Pneumatiques",
                 companyInfo1: "Atlas Copco | Nacka, Suède | 2023 – Actuel",
                 jobDesc1_1: "Pilotage d'une refonte de l'expérience client numérique, gestion de l'enrichissement des données pour plus de 500 SKU et création de plus de 18 articles techniques et marketing pour soutenir la nouvelle stratégie de 'pull' et améliorer la génération de leads.",
                 jobDesc1_2: "Définition d'un changement stratégique d'un modèle GTM 'push' axé sur les ventes vers un modèle 'pull' axé sur le marketing pour un portefeuille d'environ 200 MSEK (512 SKU), améliorant l'évolutivité et l'expérience client.",
@@ -446,6 +433,7 @@
                 flagEnAlt: "Anglais",
                 flagFrAlt: "Français",
                 flagSvAlt: "Suédois",
+                flagJpAlt: "Japonais"
             },
             sv: {
                 resumePageTitle: "Clement Baylion - Professionell Erfarenhet",
@@ -454,7 +442,7 @@
                 marketingManagerResume: "Marknadschef",
                 connectingInnovationSlogan: "Koppla innovation till försäljningsresultat",
                 professionalExperienceTitle: "Professionell Erfarenhet",
-                jobTitle1: "Global Produktmarknadschef, Luftmonteringsverktyg", // Updated job title
+                jobTitle1: "Global Produktmarknadschef, Luftmonteringsverktyg",
                 companyInfo1: "Atlas Copco | Nacka, Sverige | 2023 – Nuvarande",
                 jobDesc1_1: "Driver en digital kundupplevelseöversyn, hanterar databerikning för över 500 SKU:er och skapar 18+ tekniska och marknadsföringsartiklar för att stödja den nya 'pull'-strategin och förbättra leadgenerering.",
                 jobDesc1_2: "Definierar ett strategiskt skifte från en säljstyrd 'push'- till en marknadsstyrd 'pull'-GTM-modell för en portfölj på ~200 MSEK (512 SKU:er), vilket förbättrar skalbarhet och kundupplevelse.",
@@ -493,26 +481,68 @@
                 flagEnAlt: "Engelska",
                 flagFrAlt: "Franska",
                 flagSvAlt: "Svenska",
+                flagJpAlt: "Japanska"
+            },
+            ja: {
+                resumePageTitle: "クレマン・ベイリオン - 職務経歴",
+                goBackBtn: "戻る",
+                downloadCVBtn: "履歴書をダウンロード",
+                marketingManagerResume: "マーケティングマネージャー",
+                connectingInnovationSlogan: "イノベーションと販売実績をつなぐ",
+                professionalExperienceTitle: "職務経歴",
+                jobTitle1: "グローバルプロダクトマーケティングマネージャー、エアアセンブリツール",
+                companyInfo1: "アトラスコプコ | ナッカ、スウェーデン | 2023年 – 現在",
+                jobDesc1_1: "500以上のSKUのデータエンリッチメントを管理し、新しい「プル」戦略をサポートするための18以上の技術・マーケティング記事を作成し、デジタル顧客体験の全面的な見直しを推進。",
+                jobDesc1_2: "約2億スウェーedenクローナ（512 SKU）のポートフォリオに対して、販売主導の「プッシュ」モデルからマーケティング主導の「プル」GTMモデルへの戦略的転換を定義し、スケーラビリティと顧客体験を向上。",
+                jobDesc1_3: "サプライチェーン最適化プロジェクトを主導し、これまでに40のSKUを廃止してマージンを向上させることで、在庫可用性を53%から85%へと+32%増加させる見込み。",
+                jobDesc1_4: "Text-to-SQL機能を備えたLLMの実装を開拓し、高度な自然言語ベースのマーケティングおよび顧客サポートクエリを可能にするためのビジネスユースケースを定義。",
+                jobTitle2: "グローバルプロダクトマーケティングマネージャー、金属加工ツール",
+                companyInfo2: "富士エアツールズ | 大阪、日本 | 2019年 – 2023年",
+                jobDesc2_1: "困難な経済状況下で収益性を改善し、戦略的なポートフォリオ管理を通じて単価総利益（UGP）を+1パーセントポイント増加。",
+                jobDesc2_2: "34件のVOCインタビューに基づく顧客中心のイノベーションプロセスを導入し、6つの主要な新製品発売で前世代比+7%の売上成長を達成。",
+                jobDesc2_3: "製品カタログを合理化し、500のSKUを廃止して生産スループットと販売チャネルの明確性を向上させ、運用効率と集中力を強化。",
+                jobDesc2_4: "5か国の営業チームに価値販売フレームワークを成功裏に導入し、対象地域で+6%の売上増加に直接貢献。",
+                jobTitle3: "グローバルプロダクトマーケティングマネージャー、車両整備ツール",
+                companyInfo3: "ロッドクラフト | ドイツ＆フランス | 2015年 – 2019年",
+                jobDesc3_1: "40の新製品の迅速な発売により、製品バイタリティ指数（新製品からの売上）を19%から35%に増加させ、ブランドのパフォーマンスを活性化。",
+                jobDesc3_2: "ブランドの市場アプローチを近代化しながら、売上と単価総利益（UGP）の両方で同時に+2-3%の増加を達成。",
+                jobDesc3_3: "PIMシステムの実装やSAPとのAPI連携を含む、20万ユーロのプロジェクトを管理してブランドのデジタルトランスフォーメーションを主導し、新しいeコマースウェブサイトを立ち上げ。",
+                jobDesc3_4: "6つのグローバル地域からのニーズを統合して戦略的製品計画（SPP）を定義・実行し、より焦点を絞った効果的な製品ロードマップを実現。",
+                jobTitle4: "プロジェクトリーダー、新製品開発",
+                companyInfo4: "シカゴニューマチック（アトラスコプコグループ） | ナント、フランス | 2010年 – 2015年",
+                jobDesc4_1: "年間約15件の重要度の高い調達製品開発プロジェクトを成功裏に管理。",
+                jobDesc4_2: "マーケティング、財務、物流、購買の各部門間の横断的な調整を主導し、製品のタイムリーな発売を保証。",
+                jobDesc4_3: "34人の営業担当者に技術研修を提供し、顧客交渉における営業チームの効果性を向上。",
+                earlierEngineeringRolesTitle: "以前のエンジニアリング職",
+                jobTitle5: "電気部品選定",
+                companyInfo5: "MBDA（ALTEN向け） | パリ、フランス | 2008年 – 2010年",
+                jobDesc5_1: "複数のプロジェクトにわたるROHS規格の導入を成功裏に主導し、7人の設計者チームのコンプライアンスを確保しながら部品交換を管理。",
+                jobTitle6: "機械設計者（見習い）",
+                companyInfo6: "HAGER ELECTRO | オベルネ、フランス | 2005年 – 2008年",
+                jobDesc6_1: "コンセプト、プロトタイピングから生産設定、性能向上まで、エンドツーエンドの機械設計における基礎的な専門知識を習得。",
+                contactMeBtn: "お問い合わせ",
+                copyrightResume: "&copy; 2025 クレマン・ベイリオン. 全著作権所有。",
+                contactMeModalTitle: "お問い合わせ",
+                email: "Eメール:",
+                phoneSweden: "電話（スウェーデン）:",
+                phoneFrance: "電話（フランス）:",
+                flagEnAlt: "英語",
+                flagFrAlt: "フランス語",
+                flagSvAlt: "スウェーデン語",
+                flagJpAlt: "日本語"
             }
         };
 
         let currentLang = localStorage.getItem('lang') || 'en'; // Default to English
 
-        const langFlagEn = document.getElementById('langFlagEn');
-        const langFlagFr = document.getElementById('langFlagFr');
-        const langFlagSv = document.getElementById('langFlagSv');
-
-        function updateFlagsVisibility() {
-            // All flags are always visible
-        }
-
-        window.switchLanguage = function(langCode) {
+        function switchLanguage(langCode) {
             currentLang = langCode;
             localStorage.setItem('lang', currentLang);
             applyTranslations();
         };
 
         function applyTranslations() {
+            document.documentElement.lang = currentLang;
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang] && translations[currentLang][key]) {
@@ -531,10 +561,9 @@
             });
         }
 
-        // Initial application of translations and flag update on page load
+        // Initial application of translations on page load
         document.addEventListener('DOMContentLoaded', () => {
             applyTranslations();
-            updateFlagsVisibility();
         });
 
 
