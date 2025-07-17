@@ -115,10 +115,10 @@
                     <h1 class="text-3xl sm:text-4xl font-bold text-white mt-4">Clement Baylion</h1>
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-bold text-white mt-8" data-i18n="customerValueSlogan">Create sales from every innovation</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-md text-blue-100" data-i18n="sloganDescription">
-                    Building the bridge between engineering and customers,<br>
-                    Ensuring each innovation becomes a reason to buy.
-                </p>
+                 <div class="mt-4 max-w-2xl mx-auto text-md text-blue-100">
+                    <p data-i18n="sloganLine1">Building the bridge between engineering and customers,</p>
+                    <p data-i18n="sloganLine2">Ensuring each innovation becomes a reason to buy.</p>
+                </div>
                 <div class="mt-16 flex flex-wrap justify-center gap-8">
                     <a id="contactMeBtn" href="#" class="text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-md w-full sm:w-56 flex items-center justify-center" style="background-color: #645ddc;" data-i18n="contactMeBtn">
                         Contact Me
@@ -137,10 +137,14 @@
             <section class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="md:w-2/3">
                     <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-200 pb-2 mb-4" data-i18n="missionTitle">From innovation to sales</h2>
-                    <p class="text-slate-600 text-base leading-relaxed" data-i18n="missionDescription">
-                        No time or not paying attention, customers can miss a value. And you miss a sales. How to transform your innovations into easy ideas?
-                        <br><br> Get an engineer specialized in marketing.
-                    </p>
+                    
+                    <div class="text-slate-600 text-base leading-relaxed">
+                        <p data-i18n="missionDescription1">No time or not paying attention, customers can miss a value. And you miss a sales. How to transform your innovations into easy ideas?</p>
+                         <p>&nbsp;</p>
+                        <p data-i18n="missionDescription2">Get an engineer specialized in marketing.</p>
+                    </div>
+
+
                 </div>
                 <div class="md:w-1/3 w-full mt-6 md:mt-0">
                     <img src="./images/techno.png" alt="Technological setting" class="rounded-xl shadow-lg w-full h-auto object-cover">
@@ -260,24 +264,20 @@
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h3 class="text-2xl font-bold text-slate-900 mb-4" data-i18n="contactMeModalTitle">Contact Me</h3>
-            <p class="text-lg text-slate-700 mb-2">
-                <span data-i18n="email">Email:</span> <a href="mailto:clement@baylion.ovh" class="text-blue-600 hover:underline">clement@baylion.ovh</a>
+            <p class="text-lg text-slate-700 mb-2" data-i18n="email">
+                Email: <a href="mailto:clement@baylion.ovh" class="text-blue-600 hover:underline">clement@baylion.ovh</a>
             </p>
-            <p class="text-lg text-slate-700 mb-2">
-                <span data-i18n="phoneSweden">Phone (Sweden):</span> <a href="tel:+46721429108" class="text-blue-600 hover:underline">+46 72 142 91 08</a>
+            <p class="text-lg text-slate-700 mb-2" data-i18n="phoneSweden">
+                Phone (Sweden): <a href="tel:+46721429108" class="text-blue-600 hover:underline">+46 72 142 91 08</a>
             </p>
-            <p class="text-lg text-slate-700">
-                <span data-i18n="phoneFrance">Phone (France):</span> <a href="tel:+33677854937" class="text-blue-600 hover:underline">+33 6 77 85 49 37</a>
+            <p class="text-lg text-slate-700" data-i18n="phoneFrance">
+                Phone (France): <a href="tel:+33677854937" class="text-blue-600 hover:underline">+33 6 77 85 49 37</a>
             </p>
         </div>
     </div>
 
     <!-- Scripts -->
     <script type="module">
-        // --- Vercel Analytics ---
-        import { inject } from '@vercel/analytics';
-        inject();
-        
         // --- MODAL & LANGUAGE SCRIPT (No changes here) ---
         var modal = document.getElementById("contactModal");
         var btnTop = document.getElementById("contactMeBtn");
@@ -292,11 +292,13 @@
             en: {
                 pageTitle: "Clement Baylion - Profile",
                 customerValueSlogan: "Create sales from every innovation",
-                sloganDescription: "Building the bridge between engineering and customers,<br>Ensuring each innovation becomes a reason to buy.",
+                sloganLine1: "Building the bridge between engineering and customers,",
+                sloganLine2: "Ensuring each innovation becomes a reason to buy.",
                 contactMeBtn: "Contact Me",
                 experienceDetailsBtn: "Experience Details",
                 missionTitle: "From innovation to sales",
-                missionDescription: "No time or not paying attention, customers can miss a value. And you miss a sales. How to transform your innovations into easy ideas?<br><br> Get an engineer specialized in marketing.",
+                missionDescription1: "No time or not paying attention, customers can miss a value. And you miss a sales. How to transform your innovations into easy ideas?",
+                missionDescription2: "Get an engineer specialized in marketing.",
                 toolsTitle: "My Tools for Success",
                 tool1Title: "MBA and Engineer",
                 tool1Description: "Engineering and sales to translate tech into revenue",
@@ -328,11 +330,13 @@
             fr: {
                 pageTitle: "Clément Baylion - Profil",
                 customerValueSlogan: "Créer des ventes à partir de chaque innovation",
-                sloganDescription: "Bâtir le pont entre l'ingénierie et les clients,<br>En s'assurant que chaque innovation devient une raison d'acheter.",
+                sloganLine1: "Bâtir le pont entre l'ingénierie et les clients,",
+                sloganLine2: "En s'assurant que chaque innovation devient une raison d'acheter.",
                 contactMeBtn: "Contactez-moi",
                 experienceDetailsBtn: "Détails Expérience",
                 missionTitle: "De l'innovation aux ventes",
-                missionDescription: "Par manque de temps ou d'attention, les clients peuvent manquer une valeur. Et vous manquez une vente. Comment transformer vos innovations en idées simples ?<br><br> Faites appel à un ingénieur spécialisé en marketing.",
+                missionDescription1: "Par manque de temps ou d'attention, les clients peuvent manquer une valeur. Et vous manquez une vente. Comment transformer vos innovations en idées simples ?",
+                missionDescription2: "Faites appel à un ingénieur spécialisé en marketing.",
                 toolsTitle: "Mes Outils pour le Succès",
                 tool1Title: "MBA et Ingénieur",
                 tool1Description: "Ingénierie et ventes pour traduire la technologie en revenus",
@@ -364,11 +368,13 @@
             sv: {
                 pageTitle: "Clement Baylion - Profil",
                 customerValueSlogan: "Skapa försäljning från varje innovation",
-                sloganDescription: "Bygger bron mellan teknik och kunder,<br>Säkerställer att varje innovation blir en anledning att köpa.",
+                sloganLine1: "Bygger bron mellan teknik och kunder,",
+                sloganLine2: "Säkerställer att varje innovation blir en anledning att köpa.",
                 contactMeBtn: "Kontakta mig",
                 experienceDetailsBtn: "Erfarenhetsdetaljer",
                 missionTitle: "Från innovation till försäljning",
-                missionDescription: "Brist på tid eller ouppmärksamhet kan göra att kunder missar ett värde. Och du missar en försäljning. Hur omvandlar man innovationer till enkla idéer?<br><br> Anlita en ingenjör specialiserad på marknadsföring.",
+                missionDescription1: "Brist på tid eller ouppmärksamhet kan göra att kunder missar ett värde. Och du missar en försäljning. Hur omvandlar man innovationer till enkla idéer?",
+                missionDescription2: "Anlita en ingenjör specialiserad på marknadsföring.",
                 toolsTitle: "Mina Verktyg för Framgång",
                 tool1Title: "MBA och Ingenjör",
                 tool1Description: "Ingenjörskonst och försäljning för att omvandla teknik till intäkter",
@@ -400,11 +406,13 @@
             ja: {
                 pageTitle: "クレマン・ベイリオン - プロフィール",
                 customerValueSlogan: "すべてのイノベーションから売上を創造する",
-                sloganDescription: "エンジニアリングと顧客の間に橋を架け、<br>各イノベーションが購入理由となることを保証します。",
+                sloganLine1: "エンジニアリングと顧客の間に橋を架け、",
+                sloganLine2: "各イノベーションが購入理由となることを保証します。",
                 contactMeBtn: "お問い合わせ",
                 experienceDetailsBtn: "経験の詳細",
                 missionTitle: "イノベーションから販売まで",
-                missionDescription: "時間がなかったり、注意を払わなかったりすると、顧客は価値を見逃す可能性があります。そして、あなたは売上を逃します。イノベーションを簡単なアイデアに変えるにはどうすればよいですか？<br><br> マーケティングを専門とするエンジニアを雇いましょう。",
+                missionDescription1: "時間がなかったり、注意を払わなかったりすると、顧客は価値を見逃す可能性があります。そして、あなたは売上を逃します。イノベーションを簡単なアイデアに変えるにはどうすればよいですか？",
+                missionDescription2: "マーケティングを専門とするエンジニアを雇いましょう。",
                 toolsTitle: "成功のための私のツール",
                 tool1Title: "MBAとエンジニア",
                 tool1Description: "技術を収益に変えるためのエンジニアリングと販売",
@@ -447,7 +455,13 @@
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang] && translations[currentLang][key]) {
-                    element.innerHTML = translations[currentLang][key];
+                    // This handles elements with only text content
+                    const textNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+                    if (textNode && !element.querySelector('*')) { // Only change if it's the direct text content
+                        element.innerHTML = translations[currentLang][key];
+                    } else if (!textNode) {
+                         element.innerHTML = translations[currentLang][key];
+                    }
                 }
             });
             document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
