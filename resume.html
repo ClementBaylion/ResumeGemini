@@ -20,8 +20,9 @@
             padding: 1.5rem;
         }
         .header {
-            background-color: #2e1b79;
-            color: #ecf0f1;
+            background: linear-gradient(to bottom, #8433c6, #580093);
+            background-image: linear-gradient(to bottom, #8433c6, #580093), url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.15"/%3E%3C/svg%3E');
+            color: #F1FF99;
             padding: 1.5rem; /* Adjusted padding */
             margin-bottom: 2rem;
             text-align: center;
@@ -41,9 +42,9 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 160px;
             height: 4px;
-            background-color: #3498db;
+            background-color: #fddf59;
             border-radius: 2px;
         }
         .experience-card {
@@ -87,23 +88,11 @@
             color: #3498db;
             font-weight: bold;
         }
-        .footer {
-            background-color: #2e1b79;
-            color: #ecf0f1;
-            text-align: center;
-            padding: 2rem 1.5rem;
-            margin-top: 3rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
+
         /* Style for the header action buttons */
         .header-button {
-            background-color: #645ddc;
-            color: white;
+            background-color: #fddf59;
+            color: #38003C;
             padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
             text-decoration: none;
@@ -116,7 +105,7 @@
             white-space: nowrap;
         }
         .header-button:hover {
-            background-color: #534bbd;
+            background-color: #e68f0e; /* Darker orange on hover */
             transform: translateY(-2px);
         }
         .header-button i {
@@ -125,17 +114,17 @@
 
         /* Style for the Contact Me button in footer */
         .contact-button {
-            background-color: #645ddc;
-            color: white;
+            background-color: #fddf59;
+            color: #38003C;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
         .contact-button:hover {
-            background-color: #534bbd;
+            background-color: #e68f0e; /* Darker orange on hover */
             transform: translateY(-2px);
         }
 
@@ -244,14 +233,14 @@
         </div>
 
         <!-- Main Header Content -->
-        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Clement Baylion</h1>
-        <p class="text-xl sm:text-2xl font-light" data-i18n="marketingManagerResume">Product Marketing Manager</p>
-        <p class="text-2xl sm:text-3xl font-semibold text-blue-200 mt-8" data-i18n="connectingInnovationSlogan">Connecting Innovation to Sales Performance</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4" style="color: #F1FF99;">Clement Baylion</h1>
+        <p class="text-xl sm:text-2xl font-light" data-i18n="marketingManagerResume" style="color: #F1FF99;">Product Marketing Manager</p>
+        <p class="text-2xl sm:text-3xl font-semibold mt-8" data-i18n="connectingInnovationSlogan" style="color: #F1FF99;">Make marketing activities simple</p>
     </div>
 
     <div class="container">
         <h2 class="section-title" data-i18n="professionalExperienceTitle">Professional Experience</h2>
-
+        
         <!-- Experience 1: Atlas Copco -->
         <div class="experience-card">
             <h3 class="job-title" data-i18n="jobTitle1">Global Product Manager, Air Assembly Tools</h3>
@@ -330,10 +319,11 @@
         </div>
     </div>
 
-    <div class="footer">
-        <button id="contactMeBtn" class="contact-button" data-i18n="contactMeBtn">Contact Me</button>
-        <p data-i18n="copyrightResume">&copy; 2025 Clement Baylion. All rights reserved.</p>
-    </div>
+    <footer class="text-center py-8" style="background: linear-gradient(to bottom, #7700C7, #A929FF), url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/ %3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.15\'/%3E%3C/svg%3E'); color: #F1FF99;">
+        <div class="container mx-auto max-w-4xl px-8 sm:px-12">
+            <p data-i18n="copyright">&copy; 2025 Clement Baylion. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- Contact Modal -->
     <div id="contactModal" class="modal-overlay">
@@ -356,7 +346,7 @@
                 goBackBtn: "Go Back",
                 downloadCVBtn: "Download CV",
                 marketingManagerResume: "Product Marketing Manager",
-                connectingInnovationSlogan: "Connecting Innovation to Sales Performance",
+                connectingInnovationSlogan: "Make marketing activities simple",
                 professionalExperienceTitle: "Professional Experience",
                 jobTitle1: "Global Product Manager, Air Assembly Tools",
                 companyInfo1: "Atlas Copco | Nacka, Sweden | 2023 – Present",
@@ -399,8 +389,10 @@
                 jobTitle6: "Mechanical Designer (Apprenticeship)",
                 companyInfo6: "HAGER ELECTRO | Obernai, France | 2005 – 2008",
                 jobDesc6_1: "Gained foundational expertise in end-to-end mechanical design, from concept and prototyping to production setup and performance improvement.",
-                contactMeBtn: "Contact Me",
-                copyrightResume: "&copy; 2025 Clement Baylion. All rights reserved.",
+
+                copyright: "&copy; 2025 Clement Baylion. All rights reserved.",
+
+
                 contactMeModalTitle: "Clement Baylion",
                 email: "Email:",
                 phoneSweden: "Phone (Sweden):",
@@ -415,7 +407,7 @@
                 goBackBtn: "Retour",
                 downloadCVBtn: "Télécharger le CV",
                 marketingManagerResume: "Chef de Produit Marketing",
-                connectingInnovationSlogan: "Connecter l'Innovation à la Performance Commerciale",
+                connectingInnovationSlogan: "Rendez le marketing évident",
                 professionalExperienceTitle: "Expérience Professionnelle",
                 jobTitle1: "Chef de Produit Marketing Global, Outils d'Assemblage",
                 companyInfo1: "Atlas Copco | Nacka, Suède | 2023 – Actuel",
@@ -458,8 +450,10 @@
                 jobTitle6: "Concepteur Mécanique (Apprentissage)",
                 companyInfo6: "HAGER ELECTRO | Obernai, France | 2005 – 2008",
                 jobDesc6_1: "Acquisition d'une expertise fondamentale en conception mécanique de bout en bout, du concept et prototypage à la mise en place de la production et l'amélioration des performances.",
-                contactMeBtn: "Me Contacter",
-                copyrightResume: "&copy; 2025 Clément Baylion. Tous droits réservés.",
+
+                copyright: "&copy; 2025 Clément Baylion. Tous droits réservés.",
+
+
                 contactMeModalTitle: "Clément Baylion",
                 email: "E-mail :",
                 phoneSweden: "Téléphone (Suède) :",
@@ -474,7 +468,7 @@
                 goBackBtn: "Gå tillbaka",
                 downloadCVBtn: "Ladda ner CV",
                 marketingManagerResume: "Produktmarknadschef",
-                connectingInnovationSlogan: "Koppla innovation till försäljningsresultat",
+                connectingInnovationSlogan: "Gör marknadsföringen tydlig",
                 professionalExperienceTitle: "Professionell Erfarenhet",
                 jobTitle1: "Global Produktmarknadschef, Monteringsverktyg",
                 companyInfo1: "Atlas Copco | Nacka, Sverige | 2023 – Nuvarande",
@@ -517,8 +511,10 @@
                 jobTitle6: "Mekanisk Designer (Lärlingsutbildning)",
                 companyInfo6: "HAGER ELECTRO | Obernai, Frankrike | 2005 – 2008",
                 jobDesc6_1: "Fick grundläggande expertis inom mekanisk design från början till slut, från koncept och prototyper till produktionsuppsättning och prestandaförbättring.",
-                contactMeBtn: "Kontakta mig",
-                copyrightResume: "&copy; 2025 Clement Baylion. Alla rättigheter förbehållna.",
+
+                copyright: "&copy; 2025 Clement Baylion. Alla rättigheter förbehållna.",
+
+
                 contactMeModalTitle: "Kontakta mig",
                 email: "E-post:",
                 phoneSweden: "Telefon (Sverige):",
@@ -533,7 +529,7 @@
                 goBackBtn: "戻る",
                 downloadCVBtn: "履歴書をダウンロード",
                 marketingManagerResume: "プロダクトマーケティングマネージャー",
-                connectingInnovationSlogan: "イノベーションと販売実績をつなぐ",
+                connectingInnovationSlogan: "マーケティングを明確にする",
                 professionalExperienceTitle: "職務経歴",
                 jobTitle1: "グローバルプロダクトマーケティングマネージャー、アセンブリツール",
                 companyInfo1: "アトラスコプコ | ナッカ、スウェーデン | 2023年 – 現在",
@@ -576,8 +572,10 @@
                 jobTitle6: "機械設計者（見習い）",
                 companyInfo6: "HAGER ELECTRO | オベルネ、フランス | 2005年 – 2008年",
                 jobDesc6_1: "コンセプト、プロトタイピングから生産設定、性能向上まで、エンドツーエンドの機械設計における基礎的な専門知識を習得。",
-                contactMeBtn: "お問い合わせ",
-                copyrightResume: "&copy; 2025 クレマン・ベイリオン. 全著作権所有。",
+
+                copyright: "&copy; 2025 クレマン・ベイリオン. 全著作権所有。",
+
+
                 contactMeModalTitle: "お問い合わせ",
                 email: "Eメール:",
                 phoneSweden: "電話（スウェーデン）:",
@@ -623,27 +621,7 @@
         });
 
 
-        // Get the modal and buttons
-        const contactBtn = document.getElementById('contactMeBtn');
-        const modal = document.getElementById('contactModal');
-        const closeBtn = document.querySelector('.modal-close-button');
 
-        // When the user clicks the contact button, open the modal
-        contactBtn.onclick = function() {
-            modal.style.display = 'flex'; // Use flex to center content
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
-        }
-
-        // When the user clicks anywhere outside of the modal content, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>
