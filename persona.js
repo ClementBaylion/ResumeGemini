@@ -101,6 +101,6 @@ Voulez-vous un exemple sur la gestion de gamme ?"
 • **Ingénieur Mécanique** (2008) - CNAM-ESCPI Paris.
 
 5. Contact
-• Email : clement-baylion@hotmail.fr
+• Email : clement@baylion.ovh
 • Tel : +46 72 142 91 08
 `;
