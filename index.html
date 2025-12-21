@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Vercel Analytics -->
     <script>
       window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
     </script>
     <script src="/_vercel/insights/script.js" defer></script>
     <!-- Fin Vercel Analytics -->
-    <style>
-    </style>
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="pageTitle">Clement Baylion - Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -751,8 +745,12 @@
                         throw new Error("Invalid or empty response structure from API.");
                     }
                 } catch (error) {
-                    aiOutput.innerText = `Erreur: Impossible de générer une réponse. Veuillez réessayer.\nDétail: ${error.message}`;
                     console.error("Error calling API route:", error);
+                    if (error.message.includes('Quota exceeded') || error.message.includes('429')) {
+                        aiOutput.innerText = "Le service est victime de son succès (limite de quota atteinte). Veuillez réessayer un peu plus tard.";
+                    } else {
+                        aiOutput.innerText = `Erreur: Impossible de générer une réponse. Veuillez réessayer.\nDétail: ${error.message}`;
+                    }
                 } finally {
                     loadingIndicator.style.display = 'none';
                     askQuestionBtn.disabled = false;
